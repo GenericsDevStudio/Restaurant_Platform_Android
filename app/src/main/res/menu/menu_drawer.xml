@@ -5,15 +5,15 @@
 
     <item
         android:id="@+id/mainMenuItem"
-        android:title="@string/item3" />
+        android:title="@string/mainMenuTitle" />
     <item
         android:id="@+id/cartMenuItem"
-        android:title="@string/item4" />
+        android:title="@string/cartMenuTitle" />
     <item
         android:id="@+id/optionsMenuItem"
-        android:title="@string/item5" />
+        android:title="@string/optionsMenuTitle" />
     <item
         android:id="@+id/exitItem"
-        android:title="@string/item6" />
+        android:title="@string/exit" />
 
 </menu>
