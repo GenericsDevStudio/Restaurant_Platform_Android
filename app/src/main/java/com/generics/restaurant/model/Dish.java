@@ -15,4 +15,14 @@ public class Dish {
        this.description = description;
        this. price = price;
     }
+
+    public int getId() { return id; }
+
+    public int getCategoryId() { return categoryId; }
+
+    public String getName() { return name; }
+
+    public String getDescription() { return description; }
+
+    public double getPrice() { return price; }
 }

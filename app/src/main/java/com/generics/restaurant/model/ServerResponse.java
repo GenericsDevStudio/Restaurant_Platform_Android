@@ -1,6 +1,9 @@
 package com.generics.restaurant.model;
 
-public class Response {
+public class ServerResponse {
+
+    // VARIABLES CAN BE NULL, BE CAREFUL
+
     private int code;
     private String description;
     private String token;
@@ -9,21 +12,21 @@ public class Response {
     // FOR USERS :
     private int id;
 
-    Response(int code, String description, String token, Object[] list){
+    ServerResponse(int code, String description, String token, Object[] list){
         this.code = code;
         this.description = description;
         this.token = token;
         this.list = list;
     }
 
-    Response(int code, String description, String token, int id){
+    ServerResponse(int code, String description, String token, int id){
         this.code = code;
         this.description = description;
         this.token = token;
         this.id = id;
     }
 
-    Response(int code, String description, String token){
+    ServerResponse(int code, String description, String token){
         this.code = code;
         this.description = description;
         this.token = token;
