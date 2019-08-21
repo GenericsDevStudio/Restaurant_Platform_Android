@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <item
+        android:id="@+id/mainMenuItem"
+        android:title="@string/item3" />
+    <item
+        android:id="@+id/cartMenuItem"
+        android:title="@string/item4" />
+    <item
+        android:id="@+id/optionsMenuItem"
+        android:title="@string/item5" />
+    <item
+        android:id="@+id/exitItem"
+        android:title="@string/item6" />
+
+</menu>

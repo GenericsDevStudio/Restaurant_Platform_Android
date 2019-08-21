@@ -1,4 +1,11 @@
 <resources>
     <string name="app_name">Restaurant_Platform_Android</string>
     <string name="item1">Chto zdes` dolzhno bit`?</string>
+    <string name="item2">list</string>
+    <string name="item3">Главная</string>
+    <string name="item4">Корзина</string>
+    <string name="item5">Настройки</string>
+    <string name="item6">Выход</string>
+    <string name="standardUser">John Doe</string>
+    <string name="standardEmail">johndoe@defence.gov</string>
 </resources>
