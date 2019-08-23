@@ -3,13 +3,12 @@ package com.generics.restaurant.network;
 import com.generics.restaurant.model.Dish;
 import com.generics.restaurant.model.ServerObject;
 import com.generics.restaurant.model.ServerResponse;
+import com.generics.restaurant.model.User;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.LinkedList;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -20,6 +19,7 @@ public class Resources{
 
     // FIELDS
 
+    private static User current;
     private static final Gson gson = new GsonBuilder().create();
     private static final String URL = "https://restaurant-platform-project.herokuapp.com/";
     private static final Retrofit MAIN = new Retrofit.Builder()
@@ -40,7 +40,11 @@ public class Resources{
         userCart.remove(i);
     }
 
-    public static ServerObject[] getUserCart() {
+    public static ArrayList<Dish> getUserCart() {
+        return userCart;
+    }
+
+    public static ServerObject[] getUserCartAsServerObject() {
         return userCart.toArray(new ServerObject[0]);
     }
 

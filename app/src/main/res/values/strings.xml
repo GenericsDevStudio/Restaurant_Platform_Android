@@ -13,5 +13,6 @@
     <string name="standardDish">Soda</string>
     <string name="standardDishDescr">A cup of soda.</string>
     <string name="addToCartButton">Adding to cart</string>
-
+    <string name="buyButtonText">Оплатить</string>
+    <string name="sumText">Сумма: </string>
 </resources>

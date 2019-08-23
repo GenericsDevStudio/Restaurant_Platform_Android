@@ -15,6 +15,30 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <TextView
+            android:id="@+id/sumTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="40dp"
+            android:layout_marginBottom="15dp"
+            android:text="@string/sumText"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <Button
+            android:id="@+id/buyButton"
+            android:layout_width="108dp"
+            android:layout_height="37dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/buyButtonText"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/productsList"
             android:layout_width="match_parent"

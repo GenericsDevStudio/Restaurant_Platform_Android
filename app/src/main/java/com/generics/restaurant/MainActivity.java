@@ -11,6 +11,10 @@ import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+
 import com.generics.restaurant.model.Category;
 import com.generics.restaurant.model.Dish;
 import com.generics.restaurant.model.ServerObject;
@@ -20,6 +24,8 @@ import com.generics.restaurant.network.ResponseHandler;
 
 public class MainActivity extends AppCompatActivity {
 
+    private Button buyButton;
+    private TextView sumTextView;
     private DrawerLayout main;
     private RecyclerView productsList;
     private RecyclerView.Adapter productsAdapter;
@@ -33,6 +39,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
+        buyButton = findViewById(R.id.buyButton);
+        sumTextView = findViewById(R.id.sumTextView);
         productsList = findViewById(R.id.productsList);
         lm = new LinearLayoutManager(this);
         setSupportActionBar(toolbar);
@@ -96,6 +104,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void switchToMenu(){
+        buyButton.setVisibility(View.INVISIBLE);
+        sumTextView.setVisibility(View.INVISIBLE);
         Resources.getCategories(new ResponseHandler() {
             @Override
             public void onResponse(ServerResponse response) {
@@ -115,6 +125,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void switchToDishes(int id){
+        buyButton.setVisibility(View.INVISIBLE);
+        sumTextView.setVisibility(View.INVISIBLE);
         Resources.getDishes(id, new ResponseHandler() {
             @Override
             public void onResponse(ServerResponse response) {
@@ -134,7 +146,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void switchToCart(){
-        productsAdapter = new ProductsAdapter(Resources.getUserCart(), this);
+        buyButton.setVisibility(View.VISIBLE);
+        sumTextView.setVisibility(View.VISIBLE);
+        int sum = 0;
+        for(Dish temp : Resources.getUserCart()){
+            sum += temp.getPrice();
+        }
+        sumTextView.setText(String.valueOf(sum));
+        productsAdapter = new ProductsAdapter(Resources.getUserCartAsServerObject(), this);
         ProductsAdapter.cartOpened = true;
         productsList.setLayoutManager(lm);
         productsList.setAdapter(productsAdapter);

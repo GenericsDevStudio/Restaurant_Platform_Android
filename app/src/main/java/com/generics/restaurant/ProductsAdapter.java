@@ -52,7 +52,7 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
                     Dish current = ServerObject.toDish(dishesOrCategories[i]);
                     productHolder.nameText.setText(current.getName());
                     productHolder.descrText.setText(current.getDescription());
-                    productHolder.addToCartButton.setVisibility(View.INVISIBLE);
+                    productHolder.addToCartButton.s
                 }else{
                     Dish current = ServerObject.toDish(dishesOrCategories[i]);
                     productHolder.nameText.setText(current.getName());
