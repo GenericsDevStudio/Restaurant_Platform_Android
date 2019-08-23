@@ -8,12 +8,14 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.generics.restaurant.model.Category;
 import com.generics.restaurant.model.Dish;
@@ -158,5 +160,20 @@ public class MainActivity extends AppCompatActivity {
         productsList.setLayoutManager(lm);
         productsList.setAdapter(productsAdapter);
         productsList.setHasFixedSize(true);
+        buyButton.setOnClickListener(event -> {
+            Resources.addOrder(Resources.getCurrentUser().getToken(), Resources.toJSONArray(Resources.getUserCartAsDishes()), Resources.getCurrentUser().getId(), 0,
+                    new ResponseHandler(){
+                        @Override
+                        public void onResponse(ServerResponse response) {
+                            Toast.makeText(getBaseContext(), "Successfully ordered!", Toast.LENGTH_SHORT).show();
+                            //TODO MAYBE
+                        }
+
+                        @Override
+                        public void onFailure(Throwable t) {
+                            Log.i("BLYAT EXCEPTION : \n", t.getMessage());
+                        }
+                    });
+        });
     }
 }

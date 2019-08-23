@@ -19,7 +19,9 @@ public class Resources{
 
     // FIELDS
 
+    //TODO LOGIN & REGISTER WITH USER MODEL
     private static User current;
+    //TODO
     private static final Gson gson = new GsonBuilder().create();
     private static final String URL = "https://restaurant-platform-project.herokuapp.com/";
     private static final Retrofit MAIN = new Retrofit.Builder()
@@ -31,6 +33,9 @@ public class Resources{
 
 
     // METHODS
+
+
+    public static User getCurrentUser() { return current; }
 
     public static void addToUserCart(Dish d){
         userCart.add(d);
@@ -46,6 +51,10 @@ public class Resources{
 
     public static ServerObject[] getUserCartAsServerObject() {
         return userCart.toArray(new ServerObject[0]);
+    }
+
+    public static Dish[] getUserCartAsDishes() {
+        return userCart.toArray(new Dish[0]);
     }
 
     private static String toMD5Hash(String toHash){
@@ -67,7 +76,7 @@ public class Resources{
         }
     }
 
-    private static String toJSONArray(Dish[] toJson){
+    public static String toJSONArray(Dish[] toJson){
         return gson.toJson(toJson);
     }
 

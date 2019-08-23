@@ -52,12 +52,18 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
                     Dish current = ServerObject.toDish(dishesOrCategories[i]);
                     productHolder.nameText.setText(current.getName());
                     productHolder.descrText.setText(current.getDescription());
-                    productHolder.addToCartButton.s
+                    productHolder.addToCartButton.setVisibility(View.VISIBLE);
+                    productHolder.addToCartButton.setImageResource(R.drawable.ic_clear_black_24dp);
+                    productHolder.addToCartButton.setOnClickListener(event -> {
+                        Resources.removeFromCart(i);
+                        Toast.makeText(v.getContext(), "Removed from cart", Toast.LENGTH_SHORT).show();
+                    });
                 }else{
                     Dish current = ServerObject.toDish(dishesOrCategories[i]);
                     productHolder.nameText.setText(current.getName());
                     productHolder.descrText.setText(current.getDescription());
                     productHolder.addToCartButton.setVisibility(View.VISIBLE);
+                    productHolder.addToCartButton.setImageResource(R.drawable.ic_add_black_24dp);
                     productHolder.addToCartButton.setOnClickListener(event -> {
                         Resources.addToUserCart(current);
                         Toast.makeText(v.getContext(), "Added to cart", Toast.LENGTH_SHORT).show();
