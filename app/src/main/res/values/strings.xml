@@ -10,5 +10,8 @@
     <string name="standardEmail">johndoe@defence.gov</string>
     <string name="openDrawer">Open navigation drawer</string>
     <string name="closeDrawer">Close navigation drawer</string>
+    <string name="standardDish">Soda</string>
+    <string name="standardDishDescr">A cup of soda.</string>
+    <string name="addToCartButton">Adding to cart</string>
 
 </resources>

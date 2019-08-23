@@ -8,22 +8,14 @@ public class ServerResponse {
     private String description;
     private String token;
     // FOR DISHES & CATEGORIES :
-    private Object[] list;
+    private ServerObject[] list;
     // FOR USERS :
     private int id;
 
-    ServerResponse(int code, String description, String token, Object[] list){
+    ServerResponse(int code, String description, String token, ServerObject[] list){
         this.code = code;
         this.description = description;
-        this.token = token;
         this.list = list;
-    }
-
-    ServerResponse(int code, String description, String token, int id){
-        this.code = code;
-        this.description = description;
-        this.token = token;
-        this.id = id;
     }
 
     ServerResponse(int code, String description, String token){
@@ -32,12 +24,17 @@ public class ServerResponse {
         this.token = token;
     }
 
+    ServerResponse(int code, String description){
+        this.code = code;
+        this.description = description;
+    }
 
     public int getCode() { return code; }
 
     public String getDescription() { return description; }
 
-    public Object[] getList() { return list; }
+    public ServerObject[] getList() { return list; }
 
     public int getId() { return id; }
+
 }

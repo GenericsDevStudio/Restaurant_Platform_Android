@@ -1,6 +1,6 @@
 package com.generics.restaurant.model;
 
-public class Dish {
+public class Dish extends ServerObject{
 
     private int id;
     private int categoryId;
@@ -8,8 +8,9 @@ public class Dish {
     private String description;
     private double price;
 
-    Dish(int id, int categoryId, String name, String description, double price){
-       this.id = id;
+    public Dish(int id, int categoryId, String name, String description, double price){
+        super(id, name);
+        this.id = id;
        this.categoryId = categoryId;
        this.name = name;
        this.description = description;
